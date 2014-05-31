@@ -6,14 +6,23 @@
   </head>
 
   <body>
+  <div class="navbar">
+    <ul>
+      <li><a href="/recipes">Recipes</a></li>
+      <li><a href="/recipes/<%= "#{387+rand(624)}"%>">Random Recipe!</a></li>
+    </ul>
     <form action="/search" method="get">
-    <label for="search_recipes">Search:</label>
-    <input type="text" id="search_recipes" name="search" />
-    <input type="submit" value="Search" />
+      <label for="search_recipes">Search:</label>
+        <input type="text" id="search_recipes" name="search" />
+      <input type="submit" value="Search" />
     </form>
+  </div>
+
+  <div class="content">
 
     <%= yield %>
 
-  </body>
+  </div>
 
+  </body>
 </html>

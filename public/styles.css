@@ -1,0 +1,67 @@
+/*===========navbar===========*/
+
+.navbar {
+  border: 1px solid #2D3636;
+  height: 90%;
+  padding: 0;
+  margin-top: 30px;
+  width:70%;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: #536464;
+}
+
+.navbar li {
+  color: white;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.navbar li :hover {
+  color: grey;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  margin-top: -35px;
+  margin-right: 10px;
+  float: right;
+  color: white;
+}
+
+/*=======Page Content======*/
+.content {
+  border-left: 1px solid darkgrey;
+  border-right: 1px solid darkgrey;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*=======Recipe List=========*/
+.recipe_list {
+
+}
+.recipe_list h1 {
+  color: #1A3A3A;
+  margin-left: 30px;
+}
+
+.recipe_list ul {
+  list-style: none;
+  margin-left: -20px;
+  text-align: center;
+}
+
+.recipe_list a {
+  text-decoration: none;
+  color: midnightblue;
+}
+
+.recipe_list ul :hover {
+  color: green;
+}
+
