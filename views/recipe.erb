@@ -5,3 +5,20 @@
   either using two querys or by breaking after the first iteration. -->
   <%break%>
 <%end%>
+
+<h3>Ingredients:</h3>
+  <ul>
+    <% @single_recipe.each do |recipe| %>
+      <li><%= recipe['ingredient'] %></li>
+    <%end%>
+  </ul>
+
+<% @single_recipe.each do |recipe| %>
+  <h3>Directions:</h3>
+  <p><%=recipe['instructions']%></p>
+  <!-- I know there is a better way to do this part out there, but for now I cannot think of how to do it without
+  either using two querys or by breaking after the first iteration. -->
+  <%break%>
+<%end%>
+
+
