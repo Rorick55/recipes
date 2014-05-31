@@ -40,9 +40,9 @@ def recipe_and_ingredients(id)
 end
 
 def recipe_search(word_searched, page)
-  index = (page.to_i - 1) *20
+  index = (page.to_i - 1) * 20
   recipe_search = db_connection do |conn|
-    conn.exec("SELECT name, id FROM recipes WHERE name ILIKE '#{word_searched}' ORDER BY name OFFSET #{index} LIMIT 19;")
+    conn.exec("SELECT name, id FROM recipes WHERE name ILIKE '%#{word_searched}%' ORDER BY name OFFSET #{index} LIMIT 19;")
   end
   recipe_search = recipe_search.to_a
 end

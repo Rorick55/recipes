@@ -6,7 +6,11 @@
   </head>
 
   <body>
-
+    <form action="/search" method="get">
+    <label for="search_recipes">Search:</label>
+    <input type="text" id="search_recipes" name="search" />
+    <input type="submit" value="Search" />
+    </form>
 
     <%= yield %>
 
