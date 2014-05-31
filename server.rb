@@ -26,3 +26,19 @@ get '/recipes/:id' do
   @single_recipe = recipe_and_ingredients(id)
   erb :recipe
 end
+
+get '/search' do
+  @page_number = params[:page] || 1
+  @return_page = return_page(@page_number)
+  searched_word = params[:search]
+  #Id like to write a method that only pulls recipes that include the params search.
+  @recipe_search = recipe_search(searched_word, @page_number)
+  @page_number = @page_number.to_i + 1
+  erb :search
+end
+
+
+
+
+
+
