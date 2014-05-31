@@ -8,11 +8,13 @@ get '/' do
 end
 
 get '/recipes' do
+  @page_number = params[:page] || 1
+  #I need to creat a method to make a return page that does not go into negative numbers.
+  @return_page = return_page(@page_number)
   #I need to write some method that pulls in the recipe names and their id numbers to link them to their page.
   #I would also like to use pagination here in the future via sql, so I should write that method to only pull in 20 recipes at a time.
-  @recipes = 20_recipe_names
-  #then I need to turn that into an array to more easily work with
-  @recipes = @recipes.to_a
+  @recipes = recipe_names(@page_number)
+  @page_number = @page_number.to_i + 1
   erb :index
 end
 
