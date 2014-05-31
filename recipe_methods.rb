@@ -30,3 +30,11 @@ def return_page(page)
     end
   return_page
 end
+
+def recipe_and_ingredients(id)
+  single_recipe = db_connection do |conn|
+    conn.exec("SELECT recipes.name, recipes.description, recipes.instructions, recipes.id, ingredients.name
+      FROM recipes LEFT OUTER JOIN ingredients ON recipes.id = ingredients.recipe_id WHERE recipes.id = #{id};")
+  end
+  single_recipe.to_a
+end

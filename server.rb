@@ -23,6 +23,5 @@ get '/recipes/:id' do
   #the params[:id] for the link chosen. It also needs to pull in all the ingredients with the respective recipe id.
   #The method needs to take an argument to input each id to pull the right recipe out.
   @single_recipe = recipe_and_ingredients(params[:id])
-  @single_recipe = @single_recipe.to_a
   erb :recipe
 end
