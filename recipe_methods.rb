@@ -2,7 +2,7 @@ require 'pg'
 
 def db_connection
   begin
-    connetion = PG.connect(dbname: 'recipes')
+    connection = PG.connect(dbname: 'recipes')
 
     yield(connection)
 
@@ -14,11 +14,11 @@ end
 def recipe_names(page)
     #set the start of each page for the offset
   index = (page.to_i - 1) *20
-  20_recipes = db_connection do |conn|
+  twenty_recipes = db_connection do |conn|
     conn.exec("SELECT name, id FROM recipes ORDER BY name OFFSET #{index} LIMIT 19;")
   end
   #change the pg to an array so I can use it easier.
-  20_recipes.to_a
+  twenty_recipes.to_a
 end
 
 def return_page(page)
@@ -33,8 +33,8 @@ end
 
 def recipe_and_ingredients(id)
   single_recipe = db_connection do |conn|
-    conn.exec("SELECT recipes.name, recipes.description, recipes.instructions, recipes.id, ingredients.name
-      FROM recipes LEFT OUTER JOIN ingredients ON recipes.id = ingredients.recipe_id WHERE recipes.id = #{id};")
+    conn.exec("SELECT recipes.name, recipes.description, recipes.instructions, recipes.id, ingredients.name AS ingredient
+      FROM recipes LEFT OUTER JOIN ingredients ON recipes.id = ingredients.recipe_id WHERE recipes.id = '#{id}';")
   end
   single_recipe.to_a
 end

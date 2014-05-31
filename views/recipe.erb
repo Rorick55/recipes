@@ -1,0 +1,7 @@
+<% @single_recipe.each do |recipe| %>
+  <h1><%=recipe['name']%></h1>
+  <p><%=recipe['description']%></p>
+  <!-- I know there is a better way to do this part out there, but for now I cannot think of how to do it without
+  either using two querys or by breaking after the first iteration. -->
+  <%break%>
+<%end%>
