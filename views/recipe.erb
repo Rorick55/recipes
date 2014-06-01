@@ -1,22 +1,23 @@
-<% @single_recipe.each do |recipe| %>
-  <h1><%=recipe['name']%></h1>
-  <p><%=recipe['description']%></p>
-  <!-- I know there is a better way to do this part out there, but for now I cannot think of how to do it without
-  either using two querys or by breaking after the first iteration. -->
-  <%break%>
-<%end%>
+<div class="single_recipe">
+  <% @single_recipe.each do |recipe| %>
+    <h1 class="recipe_name"><%=recipe['name']%></h1>
+      <p class="description"><%=recipe['description']%></p>
+    <!-- I know there is a better way to do this part out there, but for now I cannot think of how to do it without
+    either using two querys or by breaking after the first iteration. -->
+    <%break%>
+  <%end%>
 
-<h3>Ingredients:</h3>
-  <ul>
-    <% @single_recipe.each do |recipe| %>
-      <li><%= recipe['ingredient'] %></li>
-    <%end%>
-  </ul>
+  <h3>Ingredients:</h3>
+    <ul class="ingredients">
+      <% @single_recipe.each do |recipe| %>
+        <li><%= recipe['ingredient'] %></li>
+      <%end%>
+    </ul>
 
-<% @single_recipe.each do |recipe| %>
-  <h3>Directions:</h3>
-  <p><%=recipe['instructions']%></p>
-  <%break%>
-<%end%>
-
+  <% @single_recipe.each do |recipe| %>
+    <h3>Directions:</h3>
+    <p class="instructions"><%=recipe['instructions']%></p>
+    <%break%>
+  <%end%>
+</div>
 

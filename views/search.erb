@@ -1,9 +1,13 @@
-<h1>Recipes:</h1>
-<ul>
-  <% @recipe_search.each do |recipe| %>
-    <li><a href="/recipes/<%= "#{recipe['id']}" %>"> <%= recipe['name'] %> </a></li>
-  <%end%>
-</ul>
+<div class="recipe_list">
+  <h1>Recipes:</h1>
+  <ul>
+    <% @recipe_search.each do |recipe| %>
+      <li><a href="/recipes/<%= "#{recipe['id']}" %>"> <%= recipe['name'] %> </a></li>
+    <%end%>
+  </ul>
+</div>
 
-<a href="/recipes?page=<%= @return_page%>"><=Page <%= @return_page%></a>
-<a href="/recipes?page=<%= @page_number%>">Page <%= @page_number%> =></a>
+<div class="pages">
+<a href="/recipes?page=<%= @return_page%>"><= Page <%= @return_page%> /</a>
+<a href="/recipes?page=<%= @page_number%>">  Page <%= @page_number%> =></a>
+</div>
