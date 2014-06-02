@@ -13,7 +13,7 @@ def recipe_names(page)
     #set the start of each page for the offset
   index = (page.to_i - 1) *20
   twenty_recipes = db_connection do |conn|
-    conn.exec("SELECT name, id FROM recipes ORDER BY name OFFSET #{index} LIMIT 19;")
+    conn.exec("SELECT name, id FROM recipes WHERE description IS NOT NULL ORDER BY name OFFSET #{index} LIMIT 19;")
   end
   #change the pg to an array so I can use it easier.
   twenty_recipes.to_a
@@ -40,7 +40,7 @@ end
 def recipe_search(word_searched, page)
   index = (page.to_i - 1) * 20
   recipe_search = db_connection do |conn|
-    conn.exec("SELECT name, id FROM recipes WHERE name ILIKE '%#{word_searched}%' ORDER BY name OFFSET #{index} LIMIT 19;")
+    conn.exec("SELECT name, id FROM recipes WHERE name ILIKE '%#{word_searched}%' AND description IS NOT NULL ORDER BY name OFFSET #{index} LIMIT 19;")
   end
   recipe_search = recipe_search.to_a
 end
